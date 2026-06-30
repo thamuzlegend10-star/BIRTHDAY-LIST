@@ -73,4 +73,37 @@ function renderBirthdays() {
     .join('');
 }
 
+// Run original setup engine
 renderBirthdays();
+
+// =====================================================================
+// MINECRAFT AUDIO INTERACTION LAYER (Safe Global Event Delegation)
+// =====================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const clickSound = document.getElementById("mc-click-sound");
+
+  const playMcClick = () => {
+    if (!clickSound) return;
+
+    // Clone the node so rapid multiple clicks can stack sound seamlessly
+    const soundClone = clickSound.cloneNode();
+    soundClone.volume = 0.4; // Balance volume audio mix
+
+    const playPromise = soundClone.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.log("Audio pipeline waiting for first active user engagement frame.");
+      });
+    }
+  };
+
+  // Uses top-level body delegation to dynamically intercept clicks on items
+  // rendered inside your template mapping structure after the site loads.
+  document.body.addEventListener("click", (event) => {
+    const target = event.target;
+    
+    if (target.closest(".mc-btn") || target.closest(".birthday-item")) {
+      playMcClick();
+    }
+  });
+});
