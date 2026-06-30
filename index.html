@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <audio id="mc-click-sound" src="./audio/mc.mp3" preload="auto"></audio>
+    <!-- Hidden Minecraft audio element (Clean relative path) -->
+    <audio id="mc-click-sound" src="audio/mc.mp3" preload="auto"></audio>
 
     <main class="app-shell">
+      <!-- Top Section: Compact Hero Card -->
       <section class="hero-card">
         <p class="eyebrow">Upcoming birthday reminders</p>
         <h1>Celebrate soon</h1>
@@ -25,6 +27,7 @@
         <div class="date-pill mc-btn" id="today-label">Loading date...</div>
       </section>
 
+      <!-- Middle Section: Birthday List Box -->
       <section class="list-card">
         <div class="section-heading">
           <h2>Coming up this week</h2>
@@ -33,6 +36,7 @@
         <div id="birthday-list" class="birthday-list"></div>
       </section>
 
+      <!-- Bottom Section: Slimmed Down Music Player Container -->
       <section class="music-card">
         <iframe 
           width="100%" 
@@ -47,6 +51,7 @@
       </section>
     </main>
 
+    <!-- Scripts -->
     <script src="birthdays.js"></script>
     <script src="script.js"></script>
   </body>
