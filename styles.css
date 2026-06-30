@@ -8,26 +8,32 @@
 
 :root {
   color-scheme: dark;
-  --bg: #07111f;
-  --panel: rgba(255, 255, 255, 0.08);
-  --panel-strong: rgba(255, 255, 255, 0.14);
+  --bg: #141414;
   --text: #f7f8fc;
-  --muted: #9aa7c0;
-  --accent: #7c9cff;
-  --accent-2: #56e0c4;
-  --border: rgba(255, 255, 255, 0.14);
+  --muted: #aaaaaa;
+  --accent: #55ff55; /* Lime green active state text */
   --display-font: 'Minecrafter', 'Arial Black', sans-serif;
+  
+  /* Minecraft Menu Color Palette */
+  --mc-panel: #2c2c2c;
+  --mc-border-dark: #141414;
+  --mc-border-light: #4a4a4a;
+  --mc-btn-gray: #4a4a4a;
+  --mc-btn-border-light: #8b8b8b;
+  --mc-btn-border-dark: #212121;
 }
 
 * {
   box-sizing: border-box;
+  image-rendering: pixelated;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Minecrafter', 'Inter', sans-serif;
-  background: radial-gradient(circle at top left, #13304d, var(--bg) 60%);
+  font-family: 'Minecrafter', 'Arial', sans-serif;
+  /* Retro dirt-textured background gradient fallback */
+  background: radial-gradient(circle at top left, #2c1b11, var(--bg) 80%);
   color: var(--text);
   display: grid;
   place-items: center;
@@ -37,32 +43,28 @@ body {
 .app-shell {
   width: min(900px, 100%);
   display: grid;
-  gap: 18px;
+  gap: 20px;
 }
 
-/* Shared Card Design */
+/* Master Menu Panels (Inventory Style) */
 .hero-card,
 .list-card,
 .music-card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(18px);
-  border-radius: 24px;
-}
-
-/* Hero Section Components */
-.hero-card {
-  padding: 28px;
+  background-color: var(--mc-panel);
+  border: 4px solid var(--mc-border-dark);
+  border-top-color: var(--mc-border-light);
+  border-left-color: var(--mc-border-light);
+  box-shadow: 0 12px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 0px;
+  padding: 24px;
 }
 
 .eyebrow {
   margin: 0 0 8px;
   text-transform: uppercase;
-  letter-spacing: 0.24em;
-  font-size: 0.78rem;
-  color: var(--accent-2);
-  font-weight: 600;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: #ffff55; /* Classic Minecraft Yellow */
 }
 
 h1,
@@ -71,45 +73,88 @@ h1,
   font-family: var(--display-font);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  text-shadow: 3px 3px 0px #121212;
 }
 
 h1 {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #ffffff;
 }
 
 .hero-copy {
-  margin: 10px 0 16px;
+  margin: 12px 0 20px;
   color: var(--muted);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
+/* The Core Minecraft Button Styling */
+.mc-btn,
+.birthday-item {
+  position: relative;
+  display: flex;
+  background: #5a5a5a;
+  border: 3px solid var(--mc-btn-border-dark);
+  border-top-color: var(--mc-btn-border-light);
+  border-left-color: var(--mc-btn-border-light);
+  color: #e0e0e0;
+  font-weight: normal;
+  text-shadow: 2px 2px 0px #121212;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0px;
+  transition: none;
+}
+
+/* Specific button offsets */
 .date-pill {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #02111c;
-  font-weight: 700;
+  padding: 10px 16px;
+  font-size: 0.95rem;
 }
 
-/* List Components */
-.list-card {
-  padding: 24px;
+.birthday-list {
+  display: grid;
+  gap: 14px;
+}
+
+.birthday-item {
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+}
+
+/* Hover State - Green Text + White Border Overlay */
+.mc-btn:hover,
+.birthday-item:hover {
+  background: #6c6c6c;
+  border-color: #3a3a3a;
+  border-top-color: #a0a0a0;
+  border-left-color: #a0a0a0;
+  color: var(--accent);
+}
+
+/* Click Animation - Inward-Pressed Shading Matrix */
+.mc-btn:active,
+.birthday-item:active {
+  background: #404040;
+  border-color: var(--mc-btn-border-light);
+  border-top-color: var(--mc-btn-border-dark);
+  border-left-color: var(--mc-btn-border-dark);
+  transform: translateY(2px);
 }
 
 .section-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .section-heading h2 {
-  margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
+  color: #ffffff;
 }
 
 .muted {
@@ -117,76 +162,43 @@ h1 {
   font-size: 0.95rem;
 }
 
-.birthday-list {
-  display: grid;
-  gap: 12px;
-}
-
-.birthday-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 18px;
-  border-radius: 16px;
-  background: var(--panel-strong);
-  border: 1px solid var(--border);
-}
-
 .person-info strong {
   display: block;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .person-info span {
-  color: var(--muted);
-  font-size: 0.92rem;
+  color: #ff55ff; /* Pink subtext */
+  font-size: 0.9rem;
 }
 
 .countdown-badge {
-  min-width: 90px;
-  text-align: center;
-  padding: 10px 12px;
-  border-radius: 999px;
-  background: rgba(124, 156, 255, 0.2);
-  color: #dfe8ff;
-  font-weight: 700;
+  padding: 6px 12px;
+  background: #2a2a2a;
+  border: 2px solid #141414;
+  color: #55ffff; /* Aqua count color */
+  text-shadow: 1px 1px 0px #000;
 }
 
 .empty-state {
-  padding: 20px;
+  padding: 24px;
   text-align: center;
   color: var(--muted);
-  background: var(--panel-strong);
-  border-radius: 16px;
-  border: 1px dashed var(--border);
+  background: #212121;
+  border: 4px dashed #4a4a4a;
 }
 
-/* Embedded Media Player Container Styling */
 .music-card {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
+  padding: 12px;
 }
 
 .music-card iframe {
   display: block;
-  border: none;
-  border-radius: 14px;
+  border: 4px solid var(--mc-border-dark);
 }
 
-/* Responsive Overrides */
 @media (max-width: 620px) {
-  body {
-    padding: 16px;
-  }
-
-  .birthday-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .countdown-badge {
-    min-width: auto;
-  }
+  body { padding: 12px; }
+  .birthday-item { flex-direction: column; align-items: stretch; text-align: center; }
+  .birthday-item:active { transform: none; }
 }
