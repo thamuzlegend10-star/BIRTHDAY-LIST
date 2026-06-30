@@ -35,24 +35,18 @@ body {
   color: var(--text);
   display: grid;
   place-items: center;
-  padding: 16px;
+  padding: 12px;
 }
 
-/* Widescreen Multi-Column Setup */
+/* Compact Container Block */
 .app-shell {
-  width: min(1050px, 100%);
+  width: min(520px, 100%);
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 16px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-.left-column {
-  display: grid;
-  gap: 16px;
-}
-
-/* Master Menu Panels */
+/* Retro UI Menu Panels */
 .hero-card,
 .list-card,
 .music-card {
@@ -60,22 +54,16 @@ body {
   border: 4px solid var(--mc-border-dark);
   border-top-color: var(--mc-border-light);
   border-left-color: var(--mc-border-light);
-  box-shadow: 0 10px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 0px rgba(0, 0, 0, 0.4);
   border-radius: 0px;
-  padding: 20px;
-}
-
-/* Make right card span down evenly */
-.list-card {
-  height: 100%;
-  min-height: 350px;
+  padding: 16px;
 }
 
 .eyebrow {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: #ffff55;
 }
 
@@ -89,18 +77,18 @@ h1,
 }
 
 h1 {
-  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-size: 1.5rem;
   color: #ffffff;
 }
 
 .hero-copy {
-  margin: 8px 0 16px;
+  margin: 6px 0 12px;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   line-height: 1.4;
 }
 
-/* Core Buttons */
+/* Tightly Sized Core Interaction Buttons */
 .mc-btn,
 .birthday-item {
   position: relative;
@@ -118,20 +106,20 @@ h1 {
 
 .date-pill {
   display: inline-flex;
-  padding: 8px 12px;
-  font-size: 0.85rem;
+  padding: 6px 10px;
+  font-size: 0.75rem;
 }
 
 .birthday-list {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .birthday-item {
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
+  gap: 10px;
+  padding: 10px 12px;
 }
 
 .mc-btn:hover,
@@ -154,70 +142,53 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .section-heading h2 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #ffffff;
 }
 
 .muted {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .person-info strong {
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .person-info span {
   color: #ff55ff;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .countdown-badge {
-  padding: 4px 10px;
+  padding: 4px 8px;
   background: #2a2a2a;
   border: 2px solid #141414;
   color: #55ffff;
   text-shadow: 1px 1px 0px #000;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
 .empty-state {
-  padding: 20px;
+  padding: 16px;
   text-align: center;
   color: var(--muted);
   background: #212121;
   border: 4px dashed #4a4a4a;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
+/* Micro Audio Player Styles */
 .music-card {
-  padding: 8px;
+  padding: 6px;
 }
 
 .music-card iframe {
   display: block;
   border: 4px solid var(--mc-border-dark);
-}
-
-/* Force side-by-side view on smaller touch screens when tilted */
-@media (max-width: 768px) {
-  .app-shell {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  body {
-    padding: 10px;
-  }
-}
-
-/* Safety Fallback: Stack cleanly if screen is strictly narrow portrait */
-@media (max-width: 480px) and (orientation: portrait) {
-  .app-shell {
-    grid-template-columns: 1fr;
-  }
 }
