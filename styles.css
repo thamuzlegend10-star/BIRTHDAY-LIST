@@ -23,7 +23,7 @@
 
 * {
   box-sizing: border-box;
-  image-rendering: pixelated; /* Forces pixel textures to remain sharp, not blurry */
+  image-rendering: pixelated;
 }
 
 body {
@@ -35,14 +35,14 @@ body {
   place-items: center;
   padding: 12px;
   
-  /* Fullscreen dirt background setup */
+  /* Fullscreen Dirt Tile Engine */
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('dirt.jpg');
   background-repeat: repeat;
-  background-size: 64px 64px; /* Keeps the square blocks tight and sharp like the game UI */
+  background-size: 64px 64px;
   background-attachment: fixed;
 }
 
-/* Compact Container Block */
+/* Compact Main Panel */
 .app-shell {
   width: min(520px, 100%);
   display: grid;
@@ -50,7 +50,7 @@ body {
   gap: 12px;
 }
 
-/* Retro UI Menu Panels */
+/* Classic Minecraft UI Menu Box */
 .hero-card,
 .list-card,
 .music-card {
@@ -92,7 +92,7 @@ h1 {
   line-height: 1.4;
 }
 
-/* Tightly Sized Core Interaction Buttons */
+/* Interactivity Blocks */
 .mc-btn,
 .birthday-item {
   position: relative;
@@ -187,7 +187,7 @@ h1 {
   font-size: 0.75rem;
 }
 
-/* Micro Audio Player Styles */
+/* Media Card Fixes */
 .music-card {
   padding: 6px;
 }
