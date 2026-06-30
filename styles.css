@@ -40,8 +40,10 @@ body {
   gap: 18px;
 }
 
+/* Base Card Styling */
 .hero-card,
-.list-card {
+.list-card,
+.music-card {
   background: var(--panel);
   border: 1px solid var(--border);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
@@ -49,6 +51,7 @@ body {
   border-radius: 24px;
 }
 
+/* Hero Card Specifics */
 .hero-card {
   padding: 28px;
 }
@@ -92,6 +95,7 @@ h1 {
   font-weight: 700;
 }
 
+/* List Card Specifics */
 .list-card {
   padding: 24px;
 }
@@ -158,6 +162,19 @@ h1 {
   border: 1px dashed var(--border);
 }
 
+/* Music Card Specifics */
+.music-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.music-card iframe {
+  display: block;
+  border: none;
+}
+
+/* Responsive Layout */
 @media (max-width: 620px) {
   body {
     padding: 16px;
