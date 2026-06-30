@@ -11,10 +11,9 @@
   --bg: #141414;
   --text: #f7f8fc;
   --muted: #aaaaaa;
-  --accent: #55ff55; /* Lime green active state text */
+  --accent: #55ff55;
   --display-font: 'Minecrafter', 'Arial Black', sans-serif;
   
-  /* Minecraft Menu Color Palette */
   --mc-panel: #2c2c2c;
   --mc-border-dark: #141414;
   --mc-border-light: #4a4a4a;
@@ -32,21 +31,28 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Minecrafter', 'Arial', sans-serif;
-  /* Retro dirt-textured background gradient fallback */
   background: radial-gradient(circle at top left, #2c1b11, var(--bg) 80%);
   color: var(--text);
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 16px;
 }
 
+/* Widescreen Multi-Column Setup */
 .app-shell {
-  width: min(900px, 100%);
+  width: min(1050px, 100%);
   display: grid;
-  gap: 20px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+  align-items: start;
 }
 
-/* Master Menu Panels (Inventory Style) */
+.left-column {
+  display: grid;
+  gap: 16px;
+}
+
+/* Master Menu Panels */
 .hero-card,
 .list-card,
 .music-card {
@@ -54,17 +60,23 @@ body {
   border: 4px solid var(--mc-border-dark);
   border-top-color: var(--mc-border-light);
   border-left-color: var(--mc-border-light);
-  box-shadow: 0 12px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 0px rgba(0, 0, 0, 0.4);
   border-radius: 0px;
-  padding: 24px;
+  padding: 20px;
+}
+
+/* Make right card span down evenly */
+.list-card {
+  height: 100%;
+  min-height: 350px;
 }
 
 .eyebrow {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.85rem;
-  color: #ffff55; /* Classic Minecraft Yellow */
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: #ffff55;
 }
 
 h1,
@@ -73,22 +85,22 @@ h1,
   font-family: var(--display-font);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  text-shadow: 3px 3px 0px #121212;
+  text-shadow: 2px 2px 0px #121212;
 }
 
 h1 {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   color: #ffffff;
 }
 
 .hero-copy {
-  margin: 12px 0 20px;
+  margin: 8px 0 16px;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
-/* The Core Minecraft Button Styling */
+/* Core Buttons */
 .mc-btn,
 .birthday-item {
   position: relative;
@@ -98,48 +110,41 @@ h1 {
   border-top-color: var(--mc-btn-border-light);
   border-left-color: var(--mc-btn-border-light);
   color: #e0e0e0;
-  font-weight: normal;
   text-shadow: 2px 2px 0px #121212;
   cursor: pointer;
   user-select: none;
   border-radius: 0px;
-  transition: none;
 }
 
-/* Specific button offsets */
 .date-pill {
   display: inline-flex;
-  padding: 10px 16px;
-  font-size: 0.95rem;
+  padding: 8px 12px;
+  font-size: 0.85rem;
 }
 
 .birthday-list {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .birthday-item {
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  padding: 14px 18px;
+  gap: 12px;
+  padding: 12px 14px;
 }
 
-/* Hover State - Green Text + White Border Overlay */
 .mc-btn:hover,
 .birthday-item:hover {
   background: #6c6c6c;
-  border-color: #3a3a3a;
   border-top-color: #a0a0a0;
   border-left-color: #a0a0a0;
   color: var(--accent);
 }
 
-/* Click Animation - Inward-Pressed Shading Matrix */
 .mc-btn:active,
 .birthday-item:active {
   background: #404040;
-  border-color: var(--mc-btn-border-light);
   border-top-color: var(--mc-btn-border-dark);
   border-left-color: var(--mc-btn-border-dark);
   transform: translateY(2px);
@@ -149,47 +154,49 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .section-heading h2 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #ffffff;
 }
 
 .muted {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .person-info strong {
   display: block;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
 }
 
 .person-info span {
-  color: #ff55ff; /* Pink subtext */
-  font-size: 0.9rem;
+  color: #ff55ff;
+  font-size: 0.8rem;
 }
 
 .countdown-badge {
-  padding: 6px 12px;
+  padding: 4px 10px;
   background: #2a2a2a;
   border: 2px solid #141414;
-  color: #55ffff; /* Aqua count color */
+  color: #55ffff;
   text-shadow: 1px 1px 0px #000;
+  font-size: 0.85rem;
 }
 
 .empty-state {
-  padding: 24px;
+  padding: 20px;
   text-align: center;
   color: var(--muted);
   background: #212121;
   border: 4px dashed #4a4a4a;
+  font-size: 0.85rem;
 }
 
 .music-card {
-  padding: 12px;
+  padding: 8px;
 }
 
 .music-card iframe {
@@ -197,8 +204,20 @@ h1 {
   border: 4px solid var(--mc-border-dark);
 }
 
-@media (max-width: 620px) {
-  body { padding: 12px; }
-  .birthday-item { flex-direction: column; align-items: stretch; text-align: center; }
-  .birthday-item:active { transform: none; }
+/* Force side-by-side view on smaller touch screens when tilted */
+@media (max-width: 768px) {
+  .app-shell {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  body {
+    padding: 10px;
+  }
+}
+
+/* Safety Fallback: Stack cleanly if screen is strictly narrow portrait */
+@media (max-width: 480px) and (orientation: portrait) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
 }
